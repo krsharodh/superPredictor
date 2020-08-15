@@ -14,13 +14,15 @@ import { PrimeModule } from './Shared/prime.module'
 import { MaterialModule } from './Shared/material.module';
 import { AddressComponent } from './address/address.component';
 import { PredictionsComponent } from './predictions/predictions.component';
+import { UserFormComponent } from './user-form/user-form.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddressComponent,
-    PredictionsComponent
+    PredictionsComponent,
+    UserFormComponent
   ],
   imports: [
     BrowserModule,
