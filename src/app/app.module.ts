@@ -13,12 +13,14 @@ import { PrimeModule } from './Shared/prime.module'
 // Angular Material Imports
 import { MaterialModule } from './Shared/material.module';
 import { AddressComponent } from './address/address.component';
+import { PredictionsComponent } from './predictions/predictions.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AddressComponent
+    AddressComponent,
+    PredictionsComponent
   ],
   imports: [
     BrowserModule,

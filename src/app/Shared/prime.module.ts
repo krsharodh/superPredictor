@@ -8,6 +8,8 @@ import { CheckboxModule } from 'primeng/checkbox';
 import { RadioButtonModule } from 'primeng/radiobutton';
 import { DropdownModule } from 'primeng/dropdown';
 import { InputTextareaModule } from 'primeng/inputtextarea';
+import { SelectButtonModule } from 'primeng/selectbutton';
+import { InputNumberModule } from 'primeng/inputnumber';
 
 
 @NgModule({
@@ -20,6 +22,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
         RadioButtonModule,
         InputTextareaModule,
         DropdownModule,
+        SelectButtonModule,
+        InputNumberModule
     ],
     exports: [
         AccordionModule,
@@ -30,6 +34,8 @@ import { InputTextareaModule } from 'primeng/inputtextarea';
         RadioButtonModule,
         InputTextareaModule,
         DropdownModule,
+        SelectButtonModule,
+        InputNumberModule
     ],
 })
 export class PrimeModule { }

@@ -26,3 +26,12 @@ header h1 {
   width: 90%;
   margin-top: 2rem;
 }
+
+.disabled {
+  pointer-events: none;
+  opacity: 0.1;
+}
+
+.form-field {
+  margin-top: 1rem;
+}

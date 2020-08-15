@@ -28,11 +28,11 @@ export class AddressComponent implements OnInit {
     );
 
     widget.on("result:select", function (fullAddress, metaData) {
-      document.getElementById("addrs_1").value = metaData.address_line_1;
-      document.getElementById("addrs_2").value = metaData.address_line_2;
-      document.getElementById("suburb").value = metaData.locality_name;
-      document.getElementById("state").value = metaData.state_territory;
-      document.getElementById("postcode").value = metaData.postcode;
+      document.getElementById("addrs_1").nodeValue = metaData.address_line_1;
+      document.getElementById("addrs_2").nodeValue = metaData.address_line_2;
+      document.getElementById("suburb").nodeValue = metaData.locality_name;
+      document.getElementById("state").nodeValue = metaData.state_territory;
+      document.getElementById("postcode").nodeValue = metaData.postcode;
     });
   }
 
