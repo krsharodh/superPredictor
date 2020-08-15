@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SelectItem } from 'primeng/api';
 import { Router } from "@angular/router";
+import { StateServiceService } from '../Shared/Services/state-service.service';
 
 @Component({
   selector: 'app-user-form',
@@ -28,9 +29,13 @@ export class UserFormComponent {
 
   annualIncome: Number;
 
+  amountList: SelectItem[];
   amountToBeWithdrawn: Number;
 
-  constructor(private router: Router) {
+  constructor(
+    private router: Router,
+    private stateSvc: StateServiceService
+    ) {
     this.genderList = [
       { label: 'Male', value: { img: 'male.png', name: 'male' } },
       { label: 'Female', value: { img: 'woman.png', name: 'female' } },
@@ -65,20 +70,35 @@ export class UserFormComponent {
       { label: 'Single', value: { img: 'single.png', name: 'single' } },
       { label: 'Married', value: { img: 'married.png', name: 'married' } }
     ];
+
+    this.amountList = [
+      { label: '$ 1,000', value: 1000 },
+      { label: '$ 2,000', value: 2000 },
+      { label: '$ 3,000', value: 3000 },
+      { label: '$ 4,000', value: 4000 },
+      { label: '$ 5,000', value: 5000 },
+      { label: '$ 6,000', value: 6000 },
+      { label: '$ 7,000', value: 7000 },
+      { label: '$ 8,000', value: 8000 },
+      { label: '$ 9,000', value: 9000 },
+      { label: '$ 10,000', value: 10000 },
+    ]
   }
 
   getPrediction() {
     alert("success!!");
-    console.log({
-      gender: this.selectedGender["name"],
-      ageCategory: this.selectedAgeCategory["name"],
-      marritalStatus: this.selectedMaritalStatus["name"],
+    const formData = {
+      gender: this.selectedGender,
+      ageCategory: this.selectedAgeCategory,
+      marritalStatus: this.selectedMaritalStatus,
       occupation: this.selectedOccupation,
       profession: this.selectedProfesssion,
       annualIncome: this.annualIncome,
       amountToBeWithdrawn: this.amountToBeWithdrawn,
       postcode: this.postCode
-    });
+    }
+    console.log(formData);
+    this.stateSvc.setFormData(formData);
     this.router.navigate(['predictions']);
   }
 

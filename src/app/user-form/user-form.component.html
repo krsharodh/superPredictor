@@ -50,7 +50,7 @@
                         <h2>Annual Income <i *ngIf="annualIncome" class="pi pi-check"
                                 style="font-size: 1rem; color: green;"></i>
                         </h2>
-                        <p-inputNumber [(ngModel)]="annualIncome" mode="currency" currency="AUD" locale="en-US">
+                        <p-inputNumber [(ngModel)]="annualIncome" mode="currency" currency="USD" locale="en-US">
                         </p-inputNumber>
 
                         <div class="form-field" [ngClass]="{'disabled': !annualIncome}">
@@ -58,9 +58,7 @@
                             <h2>Amount to be withdrawn <i *ngIf="amountToBeWithdrawn" class="pi pi-check"
                                     style="font-size: 1rem; color: green;"></i>
                             </h2>
-                            <p-inputNumber [(ngModel)]="amountToBeWithdrawn" mode="currency" currency="AUD"
-                                locale="en-US">
-                            </p-inputNumber>
+                            <p-selectButton [options]="amountList" [(ngModel)]="amountToBeWithdrawn"></p-selectButton>
 
                             <div class="form-field" [ngClass]="{'disabled': !amountToBeWithdrawn}">
                                 <h2>Post Code <i *ngIf="postCode" class="pi pi-check"
