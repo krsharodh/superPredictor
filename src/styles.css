@@ -1,4 +1,27 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html,
+body {
+  height: 100%;
+}
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.p-card-header {
+  margin-left: 1rem;
+}
+
+.p-card-footer {
+    text-align: center;
+}
+
+.p-field {
+    margin-bottom: 1rem;
+}
+
+.p-field>label {
+    display: inline-block;
+    margin-bottom: .5rem;
+}

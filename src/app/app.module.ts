@@ -1,18 +1,33 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+// Prime Ng Imports
+import { PrimeModule } from './Shared/prime.module'
+
+// Angular Material Imports
+import { MaterialModule } from './Shared/material.module';
+import { AddressComponent } from './address/address.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    AddressComponent
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    HttpClientModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    MaterialModule,
+    PrimeModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
