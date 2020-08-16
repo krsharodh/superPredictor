@@ -85,16 +85,26 @@ export class UserFormComponent {
     ]
   }
 
+  getYearsLeft(ageCategory: String) {
+    if (ageCategory['name'] == "young") {
+      return 24;
+    } else if (ageCategory['name'] == "medium") {
+      return 37;
+    } else {
+      return 42;
+    }
+  }
+
   getPrediction() {
     alert("success!!");
     const formData = {
-      gender: this.selectedGender,
-      ageCategory: this.selectedAgeCategory,
-      marritalStatus: this.selectedMaritalStatus,
+      Gender: this.selectedGender,
+      Age: this.getYearsLeft(this.selectedAgeCategory),
+      Mstatus: this.selectedMaritalStatus,
       occupation: this.selectedOccupation,
       profession: this.selectedProfesssion,
-      annualIncome: this.annualIncome,
-      amountToBeWithdrawn: this.amountToBeWithdrawn,
+      annualincome: this.annualIncome,
+      amountwithdrawn: this.amountToBeWithdrawn,
       postcode: this.postCode
     }
     console.log(formData);
