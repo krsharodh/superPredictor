@@ -25,3 +25,7 @@ body {
     display: inline-block;
     margin-bottom: .5rem;
 }
+
+p-card div {
+  margin: 0 auto;
+}

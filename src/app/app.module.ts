@@ -16,6 +16,8 @@ import { AddressComponent } from './address/address.component';
 import { PredictionsComponent } from './predictions/predictions.component';
 import { UserFormComponent } from './user-form/user-form.component';
 
+import { ChartModule } from 'primeng/chart';
+
 
 @NgModule({
   declarations: [
@@ -32,6 +34,7 @@ import { UserFormComponent } from './user-form/user-form.component';
     AppRoutingModule,
     MaterialModule,
     PrimeModule,
+    ChartModule
   ],
   providers: [],
   bootstrap: [AppComponent]

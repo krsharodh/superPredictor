@@ -15,18 +15,48 @@ export class PredictionsComponent implements OnInit, AfterViewInit {
   prediction: any;
   formData: any;
   superAnnuation: number = 0;
+  superAnnuationBefore: number = 0;
+
+  chartData: any;
+  chartOptions: any;
+
 
   @ViewChild("vizContainer") containerDiv: ElementRef;
 
-  constructor(private stateSvc: StateServiceService) { }
+  constructor(private stateSvc: StateServiceService) {
+  }
 
   ngOnInit(): void {
     this.formData = this.stateSvc.formData;
     this.calcSuperAnnuation();
-    this.stateSvc.getPredictions().subscribe(res => {
-      this.prediction = res;
-      console.log(this.prediction);
-    })
+    this.prediction = this.stateSvc.getPredictionData();
+    this.chartData = {
+      labels: ['Amount gained after withdrawl', 'Amount Lost'],
+      datasets: [
+        {
+          label: 'Maturity amount',
+          backgroundColor: [
+            "#FF6384",
+            "#36A2EB"
+          ],
+          borderColor: [
+            "#FF6384",
+            "#36A2EB"
+          ],
+          data: [this.superAnnuationBefore, this.superAnnuationBefore - this.superAnnuation]
+        }
+      ]
+    }
+    this.chartOptions = {
+      title: {
+        display: true,
+        text: 'Amount of money lost from super annuation',
+        fontSize: 16
+      },
+      legend: {
+        position: 'bottom'
+      }
+    };
   }
 
   ngAfterViewInit() {
@@ -37,12 +67,6 @@ export class PredictionsComponent implements OnInit, AfterViewInit {
     const vizUrl = "https://public.tableau.com/views/GovHack-Dynamic/Dashboard";
     const options = {
       hideTabs: true,
-      onFirstInteractive: () => {
-        console.log("onFirstInteractive");
-      },
-      onFirstVizSizeKnown: () => {
-        console.log("onFirstVizSizeKnown");
-      }
     };
     this.viz = new tableau.Viz(
       this.containerDiv.nativeElement,
@@ -62,9 +86,10 @@ export class PredictionsComponent implements OnInit, AfterViewInit {
   }
 
   calcSuperAnnuation() {
-    console.log("prediction", this.formData)
     let n = 60 - this.formData.Age;
-    this.superAnnuation += this.formData.amountToBeWithdrawn * (1 + (5 / (n) * 100)) ^ n;
+
+    this.superAnnuation += (this.formData.annualincome - this.formData.amountwithdrawn) * (1 + (5 / (n) * 100)) ^ n;
+    this.superAnnuationBefore += this.formData.annualincome * (1 + (5 / (n) * 100)) ^ n;
   }
 
 }

@@ -1,12 +1,40 @@
-<div class="container">
-    <p-card>
-        <p-header>
-            <h2>Predictions</h2>
-        </p-header>
-        <div>
-            <h3>The amount you're about to withdraw will mature to <span
-                    style="color: red; font-size: 2rem;">{{superAnnuation|currency:'USD'}}</span></h3>
-        </div>
-        <div #vizContainer style="display: flex; justify-content: center"></div>
-    </p-card>
-</div>
+<p-card>
+    <p-header>
+        <h2>Predictions</h2>
+    </p-header>
+    <div>
+        <h3>Maturity amount after withdrawl: <span
+                style="color: red; font-size: 2rem;">{{superAnnuation|currency:'USD'}}</span></h3>
+        <h3>Maturity amount without withdrawl: <span
+                style="color: green; font-size: 2rem;">{{superAnnuationBefore|currency:'USD'}}</span></h3>
+    </div>
+    <div style="text-align: center;">
+        <p-chart width="400px" height="400px" type="doughnut" [data]="chartData" [options]="chartOptions"></p-chart>
+    </div>
+    <div #vizContainer style="display: flex; justify-content: center"></div>
+    <div>
+        <h2>Assumptions</h2>
+        <ol>
+            <li>Retirement age is 60</li>
+        </ol>
+    </div>
+    <div class="useful-links">
+        <h2>Useful Links</h2>
+        <ol>
+            <li><a target="_blank" href="https://www.dhhs.vic.gov.au/financial-support-coronavirus-covid-19">Financial
+                    support for
+                    coronavirus (COVID-19)</a><i class="pi pi-external-link"></i></li>
+            <li><a target="_blank"
+                    href="https://www.business.vic.gov.au/support-for-your-business/grants-and-assistance">Grants &
+                    Assistance</a><i class="pi pi-external-link"></i></li>
+            <li><a target="_blank"
+                    href="https://www.studymelbourne.vic.gov.au/news-updates/international-student-emergency-relief-fund">International
+                    Student Emergency Relief Fund</a><i class="pi pi-external-link"></i></li>
+            <li><a target="_blank" href="https://www.vic.gov.au/workingforvictoria">Find work or employees if you've
+                    been impacted
+                    by coronavirus (COVID-19) - Working for Victoria</a><i class="pi pi-external-link"></i></li>
+            <li><a target="_blank" href="https://www.sro.vic.gov.au/coronavirus">Tax relief for landlords and
+                    businesses</a><i class="pi pi-external-link"></i></li>
+        </ol>
+    </div>
+</p-card>

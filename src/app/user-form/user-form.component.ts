@@ -11,16 +11,16 @@ import { StateServiceService } from '../Shared/Services/state-service.service';
 export class UserFormComponent {
 
   genderList: SelectItem[];
-  selectedGender: String;
+  selectedGender: any;
 
   ageCategoryList: SelectItem[];
-  selectedAgeCategory: String;
+  selectedAgeCategory: any;
 
   occupationList: SelectItem[];
   selectedOccupation: String;
 
   maritalStatusList: SelectItem[];
-  selectedMaritalStatus: String;
+  selectedMaritalStatus: any;
 
   professionList: SelectItem[];
   selectedProfesssion: String;
@@ -35,7 +35,7 @@ export class UserFormComponent {
   constructor(
     private router: Router,
     private stateSvc: StateServiceService
-    ) {
+  ) {
     this.genderList = [
       { label: 'Male', value: { img: 'male.png', name: 'male' } },
       { label: 'Female', value: { img: 'woman.png', name: 'female' } },
@@ -96,11 +96,10 @@ export class UserFormComponent {
   }
 
   getPrediction() {
-    alert("success!!");
     const formData = {
-      Gender: this.selectedGender,
-      Age: this.getYearsLeft(this.selectedAgeCategory),
-      Mstatus: this.selectedMaritalStatus,
+      Gender: this.selectedGender.name,
+      Age: this.getYearsLeft(this.selectedAgeCategory.name),
+      Mstatus: this.selectedMaritalStatus.name,
       occupation: this.selectedOccupation,
       profession: this.selectedProfesssion,
       annualincome: this.annualIncome,
@@ -109,7 +108,10 @@ export class UserFormComponent {
     }
     console.log(formData);
     this.stateSvc.setFormData(formData);
-    this.router.navigate(['predictions']);
+    this.stateSvc.getPredictions().subscribe(res => {
+      this.stateSvc.setPredictionData(res);
+      this.router.navigate(['predictions']);
+    });
   }
 
 }

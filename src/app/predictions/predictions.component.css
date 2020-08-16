@@ -3,3 +3,12 @@
   width: 90%;
   margin-top: 2rem;
 }
+
+.useful-links li{
+    padding: 0.5rem 0;
+}
+
+.useful-links li i{
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+}

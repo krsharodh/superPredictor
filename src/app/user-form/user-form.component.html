@@ -10,79 +10,82 @@
                 <div><span>{{item.label}}</span></div>
             </ng-template>
         </p-selectButton>
-    </div>
 
-    <div class="form-field" [ngClass]="{'disabled': !selectedGender}">
-        <h2>Age Category <i *ngIf="selectedAgeCategory" class="pi pi-check" style="font-size: 1rem; color: green;"></i>
-        </h2>
-        <p-selectButton [options]="ageCategoryList" [(ngModel)]="selectedAgeCategory">
-            <ng-template let-item>
-                <img style="display: block" width="50px" height="50px" src="../assets/{{item.value.img}}" />
-                <div><span>{{item.label}}</span></div>
-            </ng-template>
-        </p-selectButton>
 
-        <div class="form-field" [ngClass]="{'disabled': !selectedAgeCategory}">
-            <h2>Marital Status<i *ngIf="selectedMaritalStatus" class="pi pi-check"
+        <div class="form-field" [ngClass]="{'disabled': !selectedGender}">
+            <h2>Age Category <i *ngIf="selectedAgeCategory" class="pi pi-check"
                     style="font-size: 1rem; color: green;"></i>
             </h2>
-            <p-selectButton [options]="maritalStatusList" [(ngModel)]="selectedMaritalStatus">
+            <p-selectButton [options]="ageCategoryList" [(ngModel)]="selectedAgeCategory">
                 <ng-template let-item>
                     <img style="display: block" width="50px" height="50px" src="../assets/{{item.value.img}}" />
                     <div><span>{{item.label}}</span></div>
                 </ng-template>
             </p-selectButton>
 
-            <div class="form-field" [ngClass]="{'disabled': !selectedMaritalStatus}">
-                <h2>Occupation <i *ngIf="selectedOccupation" class="pi pi-check"
+            <div class="form-field" [ngClass]="{'disabled': !selectedAgeCategory}">
+                <h2>Marital Status<i *ngIf="selectedMaritalStatus" class="pi pi-check"
                         style="font-size: 1rem; color: green;"></i>
                 </h2>
-                <p-dropdown [options]="occupationList" [(ngModel)]="selectedOccupation"></p-dropdown>
+                <p-selectButton [options]="maritalStatusList" [(ngModel)]="selectedMaritalStatus">
+                    <ng-template let-item>
+                        <img style="display: block" width="50px" height="50px" src="../assets/{{item.value.img}}" />
+                        <div><span>{{item.label}}</span></div>
+                    </ng-template>
+                </p-selectButton>
 
-                <div class="form-field" [ngClass]="{'disabled': !selectedOccupation}">
-                    <h2>Profession <i *ngIf="selectedProfesssion" class="pi pi-check"
+                <div class="form-field" [ngClass]="{'disabled': !selectedMaritalStatus}">
+                    <h2>Occupation <i *ngIf="selectedOccupation" class="pi pi-check"
                             style="font-size: 1rem; color: green;"></i>
                     </h2>
-                    <p-dropdown [options]="professionList" [(ngModel)]="selectedProfesssion"></p-dropdown>
+                    <p-dropdown [options]="occupationList" [(ngModel)]="selectedOccupation"></p-dropdown>
 
-                    <div class="form-field" [ngClass]="{'disabled': !selectedProfesssion}">
-
-                        <h2>Annual Income <i *ngIf="annualIncome" class="pi pi-check"
+                    <div class="form-field" [ngClass]="{'disabled': !selectedOccupation}">
+                        <h2>Profession <i *ngIf="selectedProfesssion" class="pi pi-check"
                                 style="font-size: 1rem; color: green;"></i>
                         </h2>
-                        <p-inputNumber [(ngModel)]="annualIncome" mode="currency" currency="USD" locale="en-US">
-                        </p-inputNumber>
+                        <p-dropdown [options]="professionList" [(ngModel)]="selectedProfesssion"></p-dropdown>
 
-                        <div class="form-field" [ngClass]="{'disabled': !annualIncome}">
+                        <div class="form-field" [ngClass]="{'disabled': !selectedProfesssion}">
 
-                            <h2>Amount to be withdrawn <i *ngIf="amountToBeWithdrawn" class="pi pi-check"
+                            <h2>Annual Income <i *ngIf="annualIncome" class="pi pi-check"
                                     style="font-size: 1rem; color: green;"></i>
                             </h2>
-                            <p-selectButton [options]="amountList" [(ngModel)]="amountToBeWithdrawn"></p-selectButton>
+                            <p-inputNumber [(ngModel)]="annualIncome" mode="currency" currency="USD" locale="en-US">
+                            </p-inputNumber>
 
-                            <div class="form-field" [ngClass]="{'disabled': !amountToBeWithdrawn}">
-                                <h2>Post Code <i *ngIf="postCode" class="pi pi-check"
+                            <div class="form-field" [ngClass]="{'disabled': !annualIncome}">
+
+                                <h2>Amount to be withdrawn <i *ngIf="amountToBeWithdrawn" class="pi pi-check"
                                         style="font-size: 1rem; color: green;"></i>
                                 </h2>
-                                <p-inputNumber [(ngModel)]="postCode" [useGrouping]="false" [size]="4"></p-inputNumber>
+                                <p-selectButton [options]="amountList" [(ngModel)]="amountToBeWithdrawn">
+                                </p-selectButton>
 
-                                <div class="form-field" [ngClass]="{'disabled': !postCode}">
-                                    <p-button label="Get Prediction" icon="pi pi-chart-line" iconPos="right"
-                                        (click)="getPrediction()">
-                                    </p-button>
+                                <div class="form-field" [ngClass]="{'disabled': !amountToBeWithdrawn}">
+                                    <h2>Post Code <i *ngIf="postCode" class="pi pi-check"
+                                            style="font-size: 1rem; color: green;"></i>
+                                    </h2>
+                                    <p-inputNumber [(ngModel)]="postCode" [useGrouping]="false" [size]="4">
+                                    </p-inputNumber>
+
+                                    <div class="form-field" [ngClass]="{'disabled': !postCode}">
+                                        <p-button label="Get Prediction" icon="pi pi-chart-line" iconPos="right"
+                                            (click)="getPrediction()">
+                                        </p-button>
+                                    </div>
                                 </div>
                             </div>
+
                         </div>
 
                     </div>
 
                 </div>
-
             </div>
         </div>
+
     </div>
-
-
     <p-footer>
         <h4>GOV HACK 2020</h4>
     </p-footer>
