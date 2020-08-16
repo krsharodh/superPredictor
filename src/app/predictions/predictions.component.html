@@ -4,18 +4,35 @@
     </p-header>
     <div>
         <h3>Maturity amount after withdrawl: <span
-                style="color: red; font-size: 2rem;">{{superAnnuation|currency:'USD'}}</span></h3>
+                style="color: green; font-size: 2rem;">{{superAnnuation|currency:'USD'}}</span></h3>
         <h3>Maturity amount without withdrawl: <span
                 style="color: green; font-size: 2rem;">{{superAnnuationBefore|currency:'USD'}}</span></h3>
+        <h3>Amount Lost: <span
+                style="color: red; font-size: 2rem;">{{superAnnuationBefore - superAnnuation|currency:'USD'}}</span>
+        </h3>
     </div>
     <div style="text-align: center;">
         <p-chart width="400px" height="400px" type="doughnut" [data]="chartData" [options]="chartOptions"></p-chart>
+    </div>
+    <div>
+        <h2>Recommendation</h2>
+        <strong>Vulnerability Index:</strong><span style="color: red; margin-left: 0.5rem;">High</span>
+        <p style="margin-top: 0.5rem;"> We highly recommend you not taking out the money from the fund currently. It would be best if you could reach
+            out to
+            government appointed financial advisors who would be able to assist you with much more specifications.
+            Please find the
+            links to the advisors below</p>
     </div>
     <div #vizContainer style="display: flex; justify-content: center"></div>
     <div>
         <h2>Assumptions</h2>
         <ol>
-            <li>Retirement age is 60</li>
+            <li>Retirement age is 60.</li>
+            <li>The employer contribution to the super funds is assumed to be 9.5%.</li>
+            <li>The interest rate for savings and super is assumed to be 5%.</li>
+            <li>The super balance (for everyone) has been assumed to be a constant of AUD$50,000.</li>
+            <li>The amounts are not adjusted for inflation.</li>
+            <li>No voluntary contributions have been assumed in this model.</li>
         </ol>
     </div>
     <div class="useful-links">
